@@ -95,9 +95,6 @@ class EslintRunner {
       extensions: this.opts.eslintExtensions,
       cwd: this.opts.repoPath,
       errorOnUnmatchedPattern: false,
-      ignore: true,
-      ignorePath: '.eslintignore',
-      ignorePattern: 'github/*',
     };
 
     try {
