@@ -1,18 +1,21 @@
 name: 'Eslint check action'
 description: "GitHub action running eslint check in your project, annotating errors/warnings in PR."
-author: "krizzu"
+author: "reggaemuffin"
 inputs:
   ghToken:
     description: 'GitHub token'
     required: true
   eslintFiles:
     description: 'Relative path to files/directories to run lint on.'
+    required: false
     default: '.'
   eslintConfig:
     description: 'Relative path to eslint config. Can either be ".js" config, ".eslintrc" or "package.json".'
+    required: false
     default: '.eslintrc'
   eslintExt:
     description: 'File extension to run linting on.'
+    required: false
     default: 'js, ts, jsx, tsx'
 runs:
   using: 'docker'

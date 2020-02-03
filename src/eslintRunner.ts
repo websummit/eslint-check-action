@@ -18,10 +18,24 @@ class EslintRunner {
   }
 
   run = async () => {
+    console.log(`Starting Github Check...`);
     this.checkRunID = await this.startGitHubCheck();
+    console.log(`Started Github Check!`);
+    console.log(`Running Eslint Check...`);
     const report = this.runEslintCheck()!;
+    console.log(`Completed Eslint Check! report: ${JSON.stringify(report)}`);
+    console.log(`Preparing Github Annotation...`);
     const { success, annotations, counts } = this.prepareAnnotation(report);
+    console.log(
+      `Completed Github Annotations! result: ${JSON.stringify({
+        success,
+        annotations,
+        counts,
+      })}`
+    );
+    console.log(`Finishing Github Check...`);
     this.finishGitHubCheck(success, annotations, counts);
+    console.log(`Finished Github Check!`);
   };
 
   private startGitHubCheck = async () => {
@@ -86,6 +100,7 @@ class EslintRunner {
 
       return cli.executeOnFiles(lintFiles);
     } catch (e) {
+      console.error(e);
       exitWithError(e.message);
 
       return null;

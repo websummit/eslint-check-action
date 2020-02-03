@@ -1,6 +1,6 @@
 {
-  "name": "@krizzu/eslint-check-action",
-  "version": "1.0.0",
+  "name": "@websummit/eslint-check-action",
+  "version": "1.0.1",
   "description": "GitHub action running eslint check in your project, annotating errors/warnings in PR.",
   "main": "dist/index.js",
   "author": "Krzysztof Borowy <dev@krizzu.dev>",
@@ -32,7 +32,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/Krizzu/eslint-check-action.git"
+    "url": "git://github.com/websummit/eslint-check-action.git"
   },
   "keywords": [
     "eslint",

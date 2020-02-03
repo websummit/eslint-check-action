@@ -31,5 +31,8 @@ const options: ActionOptionsType = {
   eslintExtensions: parseInputArray(eslintExtensions),
 };
 
+// eslint-disable-next-line no-console
+console.log(`Received options: ${JSON.stringify(options)}`);
+
 const action = new EslintRunner(ghToken, options);
 action.run();

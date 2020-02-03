@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cd "/eslint_check_action"
+cd "/eslint_check_action" || exit
 
 yarn install
 
