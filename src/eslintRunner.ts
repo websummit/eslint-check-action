@@ -89,6 +89,7 @@ class EslintRunner {
   };
 
   private runEslintCheck = () => {
+    process.chdir(this.opts.repoPath);
     const cliOptions = {
       useEslintrc: false,
       configFile: this.pathRelative(this.opts.eslintConfig),
