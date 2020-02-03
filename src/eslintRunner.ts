@@ -4,7 +4,7 @@ import eslint from 'eslint';
 import path from 'path';
 
 class EslintRunner {
-  private name = 'eslint';
+  private name = 'ESLint Check Results';
 
   private kit: GitHub;
 
