@@ -4,7 +4,7 @@ import eslint from 'eslint';
 import path from 'path';
 
 class EslintRunner {
-  private name = 'Eslint check Action';
+  private name = 'eslint';
 
   private kit: GitHub;
 
@@ -23,16 +23,18 @@ class EslintRunner {
     console.log(`Started Github Check!`);
     console.log(`Running Eslint Check...`);
     const report = this.runEslintCheck()!;
-    console.log(`Completed Eslint Check! report: ${JSON.stringify(report)}`);
+    console.log(`Completed Eslint Check!`);
     console.log(`Preparing Github Annotation...`);
     const { success, annotations, counts } = this.prepareAnnotation(report);
     console.log(
       `Completed Github Annotations! result: ${JSON.stringify({
         success,
-        annotations,
         counts,
       })}`
     );
+    for (const annotation of annotations) {
+      console.log(`Found: ${JSON.stringify(annotation)}`);
+    }
     console.log(`Finishing Github Check...`);
     this.finishGitHubCheck(success, annotations, counts);
     console.log(`Finished Github Check!`);
@@ -93,6 +95,9 @@ class EslintRunner {
       extensions: this.opts.eslintExtensions,
       cwd: this.opts.repoPath,
       errorOnUnmatchedPattern: false,
+      ignore: true,
+      ignorePath: '.eslintignore',
+      ignorePattern: 'github/*',
     };
 
     try {
