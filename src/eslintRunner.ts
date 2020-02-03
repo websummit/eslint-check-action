@@ -92,6 +92,7 @@ class EslintRunner {
       configFile: this.pathRelative(this.opts.eslintConfig),
       extensions: this.opts.eslintExtensions,
       cwd: this.opts.repoPath,
+      errorOnUnmatchedPattern: false,
     };
 
     try {
